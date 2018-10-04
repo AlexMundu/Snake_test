@@ -93,18 +93,8 @@ const keyDownHandler = (e) => {
 				|	-	|	+ x		|	- x
 
 		*/
-		if(horizontalChange) {
-			if ((d > 0 && e.keyCode === 37) || (d < 0 && e.keyCode === 39)){
-				d = -squareSize;
-			}else {
-				d = squareSize;
-			}
-		} else {
-			if ((d < 0 && e.keyCode === 37) || (d > 0 && e.keyCode === 39)){
-				d = -squareSize;
-			}else {
-				d = squareSize;
-			}
+		if ((e.keyCode === 37 && horizontalChange) || (e.keyCode === 39 && !horizontalChange)){
+			d = -d;
 		}
 		horizontalChange = !horizontalChange;	
 	}
